@@ -1,0 +1,101 @@
+<header style="background-color: black !important;" class="Header">
+  <div id="logo" class="Logo">
+      <img
+      style="height: 70px; margin-top: -11px;"
+      src="../../../assets/smrt.png"
+      alt="Logo Image"
+    />
+  </div>
+  <div id="navigator" class="Navigation">
+    <nav>
+      <ul>
+        <li [routerLink]="['/']">Browse</li>
+        <li [routerLink]="['/my-list']">My List</li>
+      </ul>
+    </nav>
+  </div>
+  <div id="search" class="Search">
+    <input placeholder="Search for a title..." />
+  </div>
+  <div class="UserProfile">
+    <div class="User">
+      <div class="name">{{ currentUser?.name }}</div>
+      <div class="image">
+        <img src="{{ currentUser?.avatar }}" alt="profile" />
+      </div>
+    </div>
+  </div>
+</header>
+<div style="margin-top: 100px;" id="hero" class="Hero">
+  <section  class="container-fluid bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <vg-player>
+            <vg-overlay-play></vg-overlay-play>
+            <vg-buffering></vg-buffering>
+
+            <vg-scrub-bar>
+              <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+              <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+            </vg-scrub-bar>
+
+            <vg-controls>
+              <vg-play-pause></vg-play-pause>
+              <vg-playback-button></vg-playback-button>
+
+              <vg-time-display
+                vgProperty="current"
+                vgFormat="mm:ss"
+              ></vg-time-display>
+
+              <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+
+              <vg-time-display
+                vgProperty="left"
+                vgFormat="mm:ss"
+              ></vg-time-display>
+              <vg-time-display
+                vgProperty="total"
+                vgFormat="mm:ss"
+              ></vg-time-display>
+
+              <vg-track-selector></vg-track-selector>
+              <vg-mute></vg-mute>
+              <vg-volume></vg-volume>
+
+              <vg-fullscreen></vg-fullscreen>
+            </vg-controls>
+
+            <video
+              #media
+              [vgMedia]="media"
+              id="singleVideo"
+              preload="auto"
+              crossorigin
+            >
+              <source
+                *ngFor="let video of sources"
+                [src]="video.src"
+                [type]="video.type"
+              />
+              <track
+                kind="subtitles"
+                label="English"
+                src="assets/av.vtt"
+                srclang="en"
+                default
+              />
+              <track
+                kind="subtitles"
+                label="Makedonski"
+                src="assets/avMK.vtt"
+                srclang="mk"
+              />
+            </video>
+          </vg-player>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

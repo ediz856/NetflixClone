@@ -1,0 +1,57 @@
+<div class="bg"></div>
+  <form class="form-signin">
+    <div class="text-center mb-4">
+      <img class="mb-4" src="" alt="" width="72" height="72" />
+      <div id="logo" class="Logo">
+          <img
+          style="height: 70px; margin-top: -11px;"
+          src="../../../assets/smrt.png"
+          alt="Logo Image"
+        />
+      </div>
+    </div>
+
+    <div class="form-label-group">
+      <input
+        type="email"
+        id="inputEmail"
+        class="form-control"
+        name="email"
+        [(ngModel)]="user.email"
+        placeholder="Email address"
+        required
+        autofocus
+      />
+      <label for="inputEmail">Email address</label>
+    </div>
+
+    <div class="form-label-group">
+      <input
+        type="password"
+        id="inputPassword"
+        name="password"
+        [(ngModel)]="user.password"
+        class="form-control"
+        placeholder="Password"
+        required
+      />
+      <label for="inputPassword">Password</label>
+    </div>
+
+    <button
+      (click)="login()"
+      class="btn btn-lg btn-primary btn-block"
+      type="submit"
+    >
+      Login
+    </button>
+    <button
+    (click)="register()"
+    class="btn btn-lg btn-secondary btn-block"
+    type="submit"
+  >
+    Register
+  </button>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; Movie platform 2019</p>
+  </form>
+

@@ -1,0 +1,37 @@
+$red: #e50914;
+$black: #221f1f;
+$blackblack: #000000;
+$grey: #f5f5f1;
+$white: #ffffff;
+
+// Button
+.Button {
+	background: transparent;
+	display: flex;
+	height: 44px;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: $white;
+  padding: 20px;
+  margin-left: 10px;
+	box-sizing: border-box;
+	border: 2px solid rgba($grey, .2);
+	border-radius: 44px;
+	font-size: 14px;
+	font-weight: 600;
+	transition: border .125s ease, background .125s ease;
+
+	&:hover {
+		border: 2px solid $grey;
+	}
+
+	&[data-primary='true'] {
+		border: 2px solid $red;
+
+		&:hover {
+      background: $red;
+      cursor: pointer;
+		}
+	}
+}

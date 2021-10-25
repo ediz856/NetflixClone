@@ -1,0 +1,94 @@
+<header style="background-color: black !important;" class="Header">
+  <div id="logo" class="Logo">
+      <img
+      style="height: 70px; margin-top: -11px;"
+      src="../../../assets/smrt.png"
+      alt="Logo Image"
+    />
+  </div>
+  <div id="navigator" class="Navigation">
+    <nav>
+      <ul>
+        <li [routerLink]="['/']">Browse</li>
+        <li [routerLink]="['/my-list']">My List</li>
+      </ul>
+    </nav>
+  </div>
+  <div id="search" class="Search">
+    <input placeholder="Search for a title..." />
+  </div>
+  <div class="UserProfile">
+    <div class="User">
+      <div class="name">{{ currentUser?.name }}</div>
+      <div class="image">
+        <img src="{{ currentUser?.avatar }}" alt="profile" />
+      </div>
+    </div>
+  </div>
+</header>
+<div
+  id="hero"
+  class="Hero"
+
+>
+<section style="position: absolute; top: 170px;" class="container-fluid bg">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <form class="form-container ">
+                <div class="form-group row ">
+                    <div class="col-sm-6">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" name="name" [(ngModel)]="currentUser.name" class="form-control" id="inputFullName" required="" placeholder="Full Name">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="uname">Username</label>
+                        <input type="text" name="username" [(ngModel)]="currentUser.username" class="form-control" id="uname" required="" placeholder="Enter username">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="inputAddressLine2">Card Number</label>
+                        <input type="tel" name="number" [(ngModel)]="card.number" class="form-control" id="cardNumber" required="" pattern="[0-9]{16}" placeholder="Enter card number">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+
+                    </div>
+                    <div class="col-sm-3">
+
+                    </div>
+                    <div class="col-sm-3">
+                      <label for="cc-exp" class="control-label mb-1">Expiration</label>
+                      <input id="cc-exp" [(ngModel)]="card.ex" name="cc-exp" type="tel" class="form-control cc-exp" required placeholder="MM / YY" autocomplete="cc-exp">
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="x_card_code" class="control-label mb-1">CVC / CVV</label>
+                        <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" required autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                      <label for="email">Email Address</label>
+                      <input type="email" name="email" [(ngModel)]="currentUser.email" class="form-control" id="email" aria-describedby="emailHelp" required="" placeholder="Enter email">
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" required="" placeholder="Password">
+                    </div>
+                </div>
+                <div id="btn">
+                  <button type="button" class="btn btn-secondary">Cancel</button>
+                  <button style="margin-left: 10px;" type="button" class="btn btn-danger px-4">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</section>
+
+</div>

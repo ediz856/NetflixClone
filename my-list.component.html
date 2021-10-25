@@ -1,0 +1,67 @@
+<header style="background-color: #211E1E !important;" class="Header">
+  <div id="logo" class="Logo">
+      <img
+      style="height: 70px; margin-top: -11px;"
+      src="../../../assets/smrt.png"
+      alt="Logo Image"
+    />
+  </div>
+  <div id="navigator" class="Navigation">
+    <nav>
+      <ul>
+        <li [routerLink]="['/']">Browse</li>
+        <li [routerLink]="['/my-list']">My List</li>
+      </ul>
+    </nav>
+  </div>
+  <div id="search" class="Search">
+    <input placeholder="Search for a title..." />
+  </div>
+  <div class="UserProfile">
+    <div class="User">
+      <div class="name">{{ currentUser?.name }}</div>
+      <div ngbDropdown class="d-inline-block" class="image">
+        <img
+          style="border-radius: 100px !important;"
+          ngbDropdownToggle
+          src="{{ currentUser?.avatar }}"
+          alt="profile"
+        />
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button [routerLink]="['/settings']" ngbDropdownItem>Settings</button>
+          <button (click)="logout()" ngbDropdownItem>Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div
+  style="background-color: #211E1E !important; margin-top:150px;"
+  class="album py-5 bg-light"
+>
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let movie of list" class="col-md-4">
+        <div style="border: none !important;" class="card mb-4 shadow-sm">
+          <img
+            src="{{ movie.cover }}"
+            style="
+                height: 300px;
+                object-fit: cover;
+            "
+          />
+          <div class="card-body">
+            <p class="card-text">
+              {{ movie.content | slice: 0:250 }}
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group"></div>
+              <small class="text-muted">{{ movie.time }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
